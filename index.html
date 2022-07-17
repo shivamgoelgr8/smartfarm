@@ -1,0 +1,968 @@
+<!--
+
+██████╗░░█████╗░██████╗░██╗░█████╗░██╗░░░░░  ░██████╗███████╗██████╗░████████╗██╗░█████╗░░██████╗
+██╔══██╗██╔══██╗██╔══██╗██║██╔══██╗██║░░░░░  ██╔════╝██╔════╝██╔══██╗╚══██╔══╝██║██╔══██╗██╔════╝
+██████╔╝███████║██║░░██║██║███████║██║░░░░░  ╚█████╗░█████╗░░██████╔╝░░░██║░░░██║██║░░╚═╝╚█████╗░
+██╔══██╗██╔══██║██║░░██║██║██╔══██║██║░░░░░  ░╚═══██╗██╔══╝░░██╔═══╝░░░░██║░░░██║██║░░██╗░╚═══██╗
+██║░░██║██║░░██║██████╔╝██║██║░░██║███████╗  ██████╔╝███████╗██║░░░░░░░░██║░░░██║╚█████╔╝██████╔╝
+╚═╝░░╚═╝╚═╝░░╚═╝╚═════╝░╚═╝╚═╝░░╚═╝╚══════╝  ╚═════╝░╚══════╝╚═╝░░░░░░░░╚═╝░░░╚═╝░╚════╝░╚═════╝░
+
+
+
+███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
+█░░░░░░░░░░░░░░░░███░░░░░░░░░░░░░░█░░░░░░░░░░░░███░░░░░░░░░░█░░░░░░░░░░░░░░█░░░░░░████████████░░░░░░░░░░░░░░█░░░░░░░░░░░░░░█░░░░░░░░░░░░░░█░░░░░░░░░░░░░░█░░░░░░░░░░█░░░░░░░░░░░░░░█░░░░░░░░░░░░░░█
+█░░▄▀▄▀▄▀▄▀▄▀▄▀░░███░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀░░░░█░░▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀░░████████████░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█
+█░░▄▀░░░░░░░░▄▀░░███░░▄▀░░░░░░▄▀░░█░░▄▀░░░░▄▀▄▀░░█░░░░▄▀░░░░█░░▄▀░░░░░░▄▀░░█░░▄▀░░████████████░░▄▀░░░░░░░░░░█░░▄▀░░░░░░░░░░█░░▄▀░░░░░░▄▀░░█░░░░░░▄▀░░░░░░█░░░░▄▀░░░░█░░▄▀░░░░░░░░░░█░░▄▀░░░░░░░░░░█
+█░░▄▀░░████░░▄▀░░███░░▄▀░░██░░▄▀░░█░░▄▀░░██░░▄▀░░███░░▄▀░░███░░▄▀░░██░░▄▀░░█░░▄▀░░████████████░░▄▀░░█████████░░▄▀░░█████████░░▄▀░░██░░▄▀░░█████░░▄▀░░███████░░▄▀░░███░░▄▀░░█████████░░▄▀░░█████████
+█░░▄▀░░░░░░░░▄▀░░███░░▄▀░░░░░░▄▀░░█░░▄▀░░██░░▄▀░░███░░▄▀░░███░░▄▀░░░░░░▄▀░░█░░▄▀░░████████████░░▄▀░░░░░░░░░░█░░▄▀░░░░░░░░░░█░░▄▀░░░░░░▄▀░░█████░░▄▀░░███████░░▄▀░░███░░▄▀░░█████████░░▄▀░░░░░░░░░░█
+█░░▄▀▄▀▄▀▄▀▄▀▄▀░░███░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀░░██░░▄▀░░███░░▄▀░░███░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀░░████████████░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█████░░▄▀░░███████░░▄▀░░███░░▄▀░░█████████░░▄▀▄▀▄▀▄▀▄▀░░█
+█░░▄▀░░░░░░▄▀░░░░███░░▄▀░░░░░░▄▀░░█░░▄▀░░██░░▄▀░░███░░▄▀░░███░░▄▀░░░░░░▄▀░░█░░▄▀░░████████████░░░░░░░░░░▄▀░░█░░▄▀░░░░░░░░░░█░░▄▀░░░░░░░░░░█████░░▄▀░░███████░░▄▀░░███░░▄▀░░█████████░░░░░░░░░░▄▀░░█
+█░░▄▀░░██░░▄▀░░█████░░▄▀░░██░░▄▀░░█░░▄▀░░██░░▄▀░░███░░▄▀░░███░░▄▀░░██░░▄▀░░█░░▄▀░░████████████████████░░▄▀░░█░░▄▀░░█████████░░▄▀░░█████████████░░▄▀░░███████░░▄▀░░███░░▄▀░░█████████████████░░▄▀░░█
+█░░▄▀░░██░░▄▀░░░░░░█░░▄▀░░██░░▄▀░░█░░▄▀░░░░▄▀▄▀░░█░░░░▄▀░░░░█░░▄▀░░██░░▄▀░░█░░▄▀░░░░░░░░░░████░░░░░░░░░░▄▀░░█░░▄▀░░░░░░░░░░█░░▄▀░░█████████████░░▄▀░░█████░░░░▄▀░░░░█░░▄▀░░░░░░░░░░█░░░░░░░░░░▄▀░░█
+█░░▄▀░░██░░▄▀▄▀▄▀░░█░░▄▀░░██░░▄▀░░█░░▄▀▄▀▄▀▄▀░░░░█░░▄▀▄▀▄▀░░█░░▄▀░░██░░▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░████░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀░░█████████████░░▄▀░░█████░░▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█
+█░░░░░░██░░░░░░░░░░█░░░░░░██░░░░░░█░░░░░░░░░░░░███░░░░░░░░░░█░░░░░░██░░░░░░█░░░░░░░░░░░░░░████░░░░░░░░░░░░░░█░░░░░░░░░░░░░░█░░░░░░█████████████░░░░░░█████░░░░░░░░░░█░░░░░░░░░░░░░░█░░░░░░░░░░░░░░█
+███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
+
+
+
+ ██▀███   ▄▄▄      ▓█████▄  ██▓ ▄▄▄       ██▓         ██████ ▓█████  ██▓███  ▄▄▄█████▓ ██▓ ▄████▄    ██████ 
+▓██ ▒ ██▒▒████▄    ▒██▀ ██▌▓██▒▒████▄    ▓██▒       ▒██    ▒ ▓█   ▀ ▓██░  ██▒▓  ██▒ ▓▒▓██▒▒██▀ ▀█  ▒██    ▒ 
+▓██ ░▄█ ▒▒██  ▀█▄  ░██   █▌▒██▒▒██  ▀█▄  ▒██░       ░ ▓██▄   ▒███   ▓██░ ██▓▒▒ ▓██░ ▒░▒██▒▒▓█    ▄ ░ ▓██▄   
+▒██▀▀█▄  ░██▄▄▄▄██ ░▓█▄   ▌░██░░██▄▄▄▄██ ▒██░         ▒   ██▒▒▓█  ▄ ▒██▄█▓▒ ▒░ ▓██▓ ░ ░██░▒▓▓▄ ▄██▒  ▒   ██▒
+░██▓ ▒██▒ ▓█   ▓██▒░▒████▓ ░██░ ▓█   ▓██▒░██████▒   ▒██████▒▒░▒████▒▒██▒ ░  ░  ▒██▒ ░ ░██░▒ ▓███▀ ░▒██████▒▒
+░ ▒▓ ░▒▓░ ▒▒   ▓▒█░ ▒▒▓  ▒ ░▓   ▒▒   ▓▒█░░ ▒░▓  ░   ▒ ▒▓▒ ▒ ░░░ ▒░ ░▒▓▒░ ░  ░  ▒ ░░   ░▓  ░ ░▒ ▒  ░▒ ▒▓▒ ▒ ░
+  ░▒ ░ ▒░  ▒   ▒▒ ░ ░ ▒  ▒  ▒ ░  ▒   ▒▒ ░░ ░ ▒  ░   ░ ░▒  ░ ░ ░ ░  ░░▒ ░         ░     ▒ ░  ░  ▒   ░ ░▒  ░ ░
+  ░░   ░   ░   ▒    ░ ░  ░  ▒ ░  ░   ▒     ░ ░      ░  ░  ░     ░   ░░         ░       ▒ ░░        ░  ░  ░  
+   ░           ░  ░   ░     ░        ░  ░    ░  ░         ░     ░  ░                   ░  ░ ░            ░  
+                    ░                                                                     ░                 
+
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href=”https://pro.fontawesome.com/releases/v5.10.0/css/all.css” rel=”stylesheet”/>
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+<link rel="icon" href="img\WhatsApp Image 2022-07-15 at 6.02.28 PM - Copy.jpeg">
+<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crops</title>
+</head>
+<style>
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+   
+    .header{
+      font-size: 30px;
+        background-color: white;
+        margin: 0px 0px;
+        padding: 0px 0px;
+        display: flex
+        ;
+    width: auto;
+    float: left;
+       color: grey;
+
+}
+.backgr{
+width: 100%;
+height: 100%; 
+
+
+}
+.yo{
+   
+    background-color: white;
+    
+    bottom: 20px;
+
+  text-align: center;
+    position: absolute;
+width: 500px;
+height: 500px;
+border-radius: 100%;
+box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+
+}
+
+
+
+.blue{
+    color: #1b356a;
+    margin: 50px 0px 38px 0px;
+    padding: 0px 0px;
+    bottom: 20px;
+  right: 20px;
+ font-size:4rem;
+ font-family: 'Audiowide';
+ height: 60px;
+ text-align: center;
+ font-weight: 700
+}
+.button{
+color: white;
+background-color: blue;
+padding: 20px 0px;
+margin:42px 188px;
+border-radius: 40px;
+width: 124px;
+height: 18px;
+text-align: center;
+border:blue 2px solid ;}
+.cent{
+    text-align: center;
+}
+.button:hover{
+    transition: all 0.4s;
+   background-color: white;
+   color: blue;
+   cursor:pointer;
+}
+.getmid{
+    display: flex;
+  justify-content: center;
+     
+
+}
+.mrg{
+    margin: 0px 40px;
+ 
+}
+.ul{
+    display: flex;
+    list-style-type: none;
+    
+
+}
+.ull{
+    display: block;
+    width: auto;
+    float: right;
+     list-style-type: none;
+    text-align: center;
+}
+.li{
+    text-decoration: none;
+    padding:  22px 10px;;
+    margin: 0px 0px;
+    color: gray;
+   
+}
+.a{
+    text-decoration:none;
+color: gray;
+text-transform: uppercase;
+font-size: 21px;
+
+
+
+}
+.a:hover{
+    transition: all 0.4s;
+   
+   color: rgb(20, 10, 10);
+   cursor:pointer;
+}
+.pg2h1{
+  color: #b8caf0;;
+    padding: 50px 0px;
+}
+.pg2d1{
+text-align: center;
+font-size: 25px;
+
+}
+.pg2p{
+    color: white;
+    font-size: 19px;
+   
+}
+.pg2{
+    background-color: #1b356a;
+    width: 100%;
+  
+
+}
+.whitebo{
+    width: 300px;
+    height: 415px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    display: inline-block;
+    margin: 27px 40px;
+    padding: 0px 0px;
+    border-radius: 20px;
+}
+
+.pg2d2{
+    display: flex;
+    justify-content: space-evenly;
+}
+.iconp2{
+    font-size: 51px;
+    padding: 19px 0px 0px 5px;
+}
+.iconp1{
+    width: 100px ;
+    height: 100px;
+    border-radius: 50%;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(128, 128, 128, 0.16);
+   
+}
+.mrgp2d2{
+    margin: 10px 17px;
+}
+.d2p2d2{
+    margin: 22px 0px;
+    color: black;
+}
+.p2d2d2{
+text-align: left;
+color: #1b356a;
+text-transform: uppercase;
+font-weight: 20px;
+margin: 14px 0px ;
+}
+
+  .pago{
+    margin: 60px 40px;
+    display: inline-block;
+    
+    
+  }
+  .pageul{
+text-align: left;
+text-transform: capitalize;
+text-decoration: none;
+  }
+  .pageli{
+    text-decoration: none;
+    font-size: medium;
+    list-style: none;
+    padding: 10px 0px;
+  }
+  .pagea{
+    color: rgb(17, 16, 16);
+  }
+  .pageh1{
+   padding: 0px 0px;
+   margin: 0px 0px 55px 0px;
+  }
+  .page{
+    display: flex;
+    width: auto;
+    height: auto;
+  }
+  .imgpage{
+    width: 100%;
+  max-width: 760px;
+  height: auto;
+  margin: 60px 0px;
+
+  }
+  
+  .pa5{
+    position: relative;
+  }
+  .pa5im{
+    width: 100%;
+  max-width: 1920px;
+  height: auto;
+  opacity: 0.6;
+  display: inline-block;
+  }
+  .pa5d2{
+    padding: 0px 150px;
+    position: absolute;
+    bottom: 280px;
+    width: auto;
+    height: auto;
+  
+    color: white;
+    z-index: 2;
+
+
+  }
+  .pa5h{
+    padding: 25px 0px;
+    font-size: 40px;
+    color: white;
+    z-index: 2;
+
+  }
+  .pa5p{
+    padding: 23px 0px;
+    font-size: 17px;
+  }
+  .p5im{
+    width: 100%;
+    height: 636px;
+    background-color: rgba(0, 0, 0, 0.537);
+    bottom: 0px;
+   
+  max-width: 1920px;
+
+    
+position: absolute;
+}
+.imagelogo{
+    width: 100%;
+  max-width: 100px;
+  height: auto;
+}
+.que{
+margin: 90px 60px;
+display: flex;
+  }
+  .queimg{
+    width: 100%;
+
+    height: auto;
+    max-width: 1300px;
+  }
+  .queh1{
+    margin:0px 70px 35px 25px;
+    color: #2a3139;
+    font-size: 34px;
+}
+  .quep1{
+    margin:0px 70px 35px 25px;
+    color: #4d5968;
+    font-size: 17px;
+}
+.swiper {
+        width: 240px;
+        height: 320px;
+        margin: auto 90px;
+        padding: 0px 0px;
+      }
+
+      .swiper-slide {
+       
+        border-radius: 18px;
+        font-size: 22px;
+        font-weight: bold;
+        
+      }
+       .swiper-slide {
+       
+        padding: 10px 10px 20px 10px;
+  border: 1px solid #BFBFBF;
+  background-color: white;
+  box-shadow: 10px 10px 5px #aaaaaa;
+      }
+      .slidd{
+        display: block;
+        margin: 0px auto;
+        width: 40%;
+      }
+      .fakeim{
+        width: 100%;
+        max-width: 90px;
+        height: auto;
+        border-radius: 50%;
+        display: inline-block;
+      }
+      .slidh3{
+        font-size: 30px;
+    padding: 8px 0px;
+      }
+      .slidh5{
+        font-size: 17px;
+        padding: 0px 0px;
+        color: #A3A5B5;;
+      }
+      .slidp{
+        font-size: 13px;
+        padding: 20px 0px;
+        color: #A3A5B5;;
+      }
+
+.clicked{
+  color: rgb(255, 79, 79);
+
+}
+.pageswipe{
+  background-color: #2a3139;
+  width: 100%;
+  height: 85vh;
+  display: flex;
+}
+.swiptex{
+  color: whitesmoke;
+  margin: auto 60px;
+  padding: 0px 0px;
+}
+.swiptexh1{
+  margin: 35px 0px;
+  font-size: 39px;
+}
+.swiptexp{
+  font-size: 20px;
+}
+@media screen and (max-width: 550px){
+    .yo{
+        width: 450px;
+height: 450px;
+
+    }
+    .button{
+        margin: 38px 152px;
+    }
+}
+@media screen and (max-width: 480px){
+    .yo{
+        width: 350px;
+height: 350px;
+bottom: 200px;
+
+right: 10px;
+    }
+    .cent{
+        font-size: 18px;
+    }
+    .button{
+        margin: 10px 111px;
+    }
+}
+@media screen and (max-width: 1111px){
+    .pg2d2{
+        display: inline-block;
+    }
+    .whitebo{
+        align-items: center;
+        justify-content: center;
+    }
+}
+.irrimg1{
+    width: 100%;
+    max-width:1000px;
+
+}
+
+.irrimg{
+    display: flex;
+}
+.irrc1{
+background-color: #a3c70b;
+padding: 50px 45px;
+
+}
+.irrc2{
+background-color: #38c8d3;
+padding:50px 45px;
+}
+.irrtext{
+   
+padding: 0px 44px;
+}
+.irrh1{
+    padding: 0px 0px 20px 0px;
+}
+.last{
+    background-color: #d9d9d9;
+    width: 100%;
+    height: auto;
+}
+.chad{
+  display: flex;
+  padding: 40px 60px;
+  margin: 0px auto;
+  justify-content: space-evenly;
+
+}
+.no{
+  width: 200px;
+    height: 256px;
+ box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+ background-color: white;
+ border-radius: 10%;
+ display: inline-block;
+ 
+}
+.lastwi{
+  width: 64px;
+  height: 64px;
+  margin: 0px auto;
+  display: block;
+  
+  padding: 15px 0px;
+}
+.lasth1{
+  padding: 0px 0px;
+  margin: 10px 0px 25px 0px;
+  font-size: 27px;
+}
+.lastalign{
+  text-align: center;
+}
+.lastin{
+  font-size: 18px;
+  padding: 0px 20px;
+}
+.lasta{
+  color: #1b356a;
+
+}
+.touch{
+  margin: 0px 70px;
+  padding: 0px 0px;
+}
+.th1{
+  font-size: 60px;
+  color: #1b356a;
+  padding: 0px 0px 10px 0px;
+}
+.th5{
+  font-size: 30px;
+  padding: 15px 0px;
+  color: #2a3139;
+
+}
+.tp{
+  color: #2a3139;
+
+}
+.media{
+  display: flex;
+  text-align: center;
+}
+.med{
+  margin: 0px auto;
+  width: 100%;
+  display: block;
+}
+.meds{
+  font-size: 31px;
+    padding: 19px 12px;
+    color: #1b356a;
+}
+.copy{
+  width: 100%;
+ 
+  background-color: #333;
+  text-align: center;
+}
+.copyp{
+  color: white;
+  font-size: 15px;
+    padding: 14px 0px;
+}
+</style>
+<body>
+    <div class="body">
+
+        <div class="mrg">
+            
+       <div class="logofl">
+
+       
+        <header class="header">
+            <img class="imagelogo" src="img\WhatsApp Image 2022-07-15 at 6.02.28 PM.jpeg" alt="">
+            <h1>Smart Farm</h1>
+        </header>
+        </div>
+       <div class="ull">
+
+        <ul class="ul">
+                                
+            <li class="li "><a href="" class="a">home</a></li>
+            <li class="li "><a href="" class="a">about</a></li>
+            <li class="li"><a href="" class="a">project</a></li>
+              
+                    <li class="li "><a href="" class="a"> features</a></li>
+                    <li class="li "><a href="" class="a"> contact</a></li>
+
+                </ul>
+  
+        </div>
+        </div>
+        <div class="container">
+            <img class="backgr" src="img\pexels-alejandro-barrón-96715.jpg" alt="">
+<div class="getmid">
+<div class="yo">
+    <h1 class="blue">Title</h1>
+    <h2 class="cent">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur incidunt sint ut? Rerum quas quidem vel doloremque, molestiae neque ratione a enim maxime voluptate pariatur ea explicabo accusantium, officiis rem?</h2>
+<p class="button">
+    Read More
+</p>
+        </div>
+</div>
+    </div>
+    </div>
+    <div class="pg2 ">
+        <div class="pg2d1">
+            <h1 class="pg2h1">Creating environments that care </h3>
+            <p class="pg2p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, incidunt?</p>
+        </div>
+        <div class="pg2d2">
+<div class="whitebo">
+    <div class="mrgp2d2">
+    <div class="iconp1">
+        <i class="fa-solid fa-hand-holding-droplet iconp2"></i>
+    </div>
+    <div class="p2d2d2">
+<h3>change font
+</h3>
+<p class="d2p2d2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id vitae consequatur porro corporis accusantium, consectetur ipsam repudiandae dolorum cumque! Ut, assumenda eos consequuntur ratione nam praesentium ea tempore facilis cumque iste labore,</p>
+    </div>
+
+    </div>
+</div>
+<div class="whitebo">
+    <div class="mrgp2d2">
+    <div class="iconp1">
+        <i class="fa-solid fa-hand-holding-droplet iconp2"></i>
+    </div>
+    <div class="p2d2d2">
+<h3>change font
+</h3>
+<p class="d2p2d2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id vitae consequatur porro corporis accusantium, consectetur ipsam repudiandae dolorum cumque! Ut, assumenda eos consequuntur ratione nam praesentium ea tempore facilis cumque iste labore,</p>
+    </div>
+
+    </div>
+</div>
+<div class="whitebo">
+    <div class="mrgp2d2">
+    <div class="iconp1">
+        <i class="fa-solid fa-hand-holding-droplet iconp2"></i>
+    </div>
+    <div class="p2d2d2">
+<h3>change font
+</h3>
+<p class="d2p2d2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id vitae consequatur porro corporis accusantium, consectetur ipsam repudiandae dolorum cumque! Ut, assumenda eos consequuntur ratione nam praesentium ea tempore facilis cumque iste labore,</p>
+    </div>
+
+    </div>
+</div>
+ 
+
+        </div>
+    </div>
+   <div class="page">
+    <div class="pago">
+        <h1 class="pageh1">What is our product?</h1>
+        <ul class="pageul">
+            <li class="pageli">→ We Calculate <u> <a class="pagea" href=""> level of soil</a></u></li>
+            <li class="pageli">→ We Calculate Ideal <u> <a href="" class="pagea"> Temperature for soil of soil</a></u></li>
+            <li class="pageli">→ We Calculate Ideal <u><a href="" class="pagea">  timimg for soil</a></u></li>
+            <li class="pageli">→ We Calculate <u> <a href="" class="pagea"> level of soil</a></u></li>
+            <li class="pageli">→ We Calculate Ideal <u> <a href="" class="pagea"> Temperature for soil of soil</a></u></li>
+            <li class="pageli">→ We Calculate Ideal <u><a href="" class="pagea">  timimg for soil</a></u></li>
+           
+        </ul>
+    </div>
+    <div class="pageimg">
+        <img  class="imgpage" src=" img\farmer-standing-rice-field-with-tablet.jpg" alt="">
+    </div>
+   </div>
+   <div class="ir">
+    <div class=" irrc1 ">
+        <div class="irrimg">
+        <div>    
+<img class="irrimg1" src="img\irrigation 1.jpg" alt="">
+</div>
+<div class="irrtext">
+<h1 class="irrh1">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas distinctio cupiditate tempore fuga, nisi suscipit voluptas aliquam? Expedita, id corrupti ratione illo quos, accusamus sed ea non mollitia veniam sit!</p>
+</div>
+
+    </div>
+</div>
+    <div class=" irrc2">
+        <div class="irrimg">
+            <div class="irrtext">
+            <h1 class="irrh1">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas distinctio cupiditate tempore fuga, nisi suscipit voluptas aliquam? Expedita, id corrupti ratione illo quos, accusamus sed ea non mollitia veniam sit!</p>
+            </div>
+            <div>
+
+      
+    <img class="irrimg1" src="img\FERTILISER 1.jpg" alt="">
+    </div>
+</div>
+</div>
+</div>
+      <div class="pa5">
+<div>
+    <div class="pa5d2">
+        <h1 class="pa5h">How do Sensors Work in Field?        </h1>
+<p class="pa5p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error quisquam culpa similique ducimus sequi doloribus eligendi obcaecati optio, possimus incidunt tempore illo tenetur pariatur molestiae alias commodi at officiis minima?</p>
+    </div>
+    <img class="pa5im" src="img\Artboard 2.jpg" alt="">
+    <div class="p5im"></div>
+    
+    </div>
+   
+   </div>
+   <div class="que">
+    <div>
+        <img class="queimg" src="img\Artboard 1.jpg" alt="">
+    </div>
+<div class="quedi">
+<h1 class="queh1">How do Sensors Work in Field?</h1>
+<p class="quep1">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos dolore iste veniam quos eum illo, optio quasi voluptate, eaque illum, saepe sit nam cumque! Nisi quasi earum illum, aliquid, harum rerum error explicabo nesciunt eum maiores velit autem! Esse facilis assumenda repellat laudantium totam qui ad asperiores temporibus voluptas voluptatum officiis ipsum corporis ducimus illo aut quibusdam tempore in adipisci sunt quod aspernatur, doloribus provident repellendus. Fuga earum optio praesentium a saepe animi quidem? Voluptas necessitatibus dicta adipisci animi, saepe quos illo. Quaerat cum quo eaque minus autem temporibus possimus..</p>
+
+<h1 class="queh1">How do Sensors Work in Field?</h1>
+<p class="quep1">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos dolore iste veniam quos eum illo, optio quasi voluptate, eaque illum, saepe sit nam cumque! Nisi quasi earum illum, aliquid, harum rerum error explicabo nesciunt eum maiores velit autem! Esse facilis assumenda repellat laudantium totam qui ad asperiores temporibus voluptas voluptatum officiis ipsum corporis ducimus illo aut quibusdam tempore in adipisci sunt quod aspernatur, doloribus provident repellendus. Fuga earum optio praesentium a saepe animi quidem? Voluptas necessitatibus dicta adipisci animi, saepe quos illo. Quaerat cum quo eaque minus autem temporibus possimus..</p>
+
+
+</div>
+</div>
+<div class="pageswipe">
+<div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+      <div class="slidd" >
+        <img class="fakeim" src="img\fake0.jpg" alt=""> 
+ </div>
+ <div class="slidi">
+    <h3 class="slidh3">Tanjiro</h3>
+<h5 class="slidh5">
+  Demon Slayer
+</h5>
+<p class="slidp"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur illum tempore quidem illo aut vitae, assumenda magnam nesciunt obcaecati ducimus earum deserunt natus! Excepturi dolore a, ab libero nihil corporis.</p>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star"></i>
+ </div>
+     </div>
+     <div class="swiper-slide">
+      <div class="slidd" >
+        <img class="fakeim" src="img\fake0.jpg" alt=""> 
+ </div>
+ <div class="slidi">
+    <h3 class="slidh3">Tanjiro</h3>
+<h5 class="slidh5">
+  Demon Slayer
+</h5>
+<p class="slidp"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur illum tempore quidem illo aut vitae, assumenda magnam nesciunt obcaecati ducimus earum deserunt natus! Excepturi dolore a, ab libero nihil corporis.</p>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star"></i>
+ </div>
+     </div>
+     <div class="swiper-slide">
+      <div class="slidd" >
+        <img class="fakeim" src="img\fake0.jpg" alt=""> 
+ </div>
+ <div class="slidi">
+    <h3 class="slidh3">Tanjiro</h3>
+<h5 class="slidh5">
+  Demon Slayer
+</h5>
+<p class="slidp"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur illum tempore quidem illo aut vitae, assumenda magnam nesciunt obcaecati ducimus earum deserunt natus! Excepturi dolore a, ab libero nihil corporis.</p>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star"></i>
+ </div>
+     </div>
+     <div class="swiper-slide">
+      <div class="slidd" >
+        <img class="fakeim" src="img\fake0.jpg" alt=""> 
+ </div>
+ <div class="slidi">
+    <h3 class="slidh3">Tanjiro</h3>
+<h5 class="slidh5">
+  Demon Slayer
+</h5>
+<p class="slidp"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur illum tempore quidem illo aut vitae, assumenda magnam nesciunt obcaecati ducimus earum deserunt natus! Excepturi dolore a, ab libero nihil corporis.</p>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star"></i>
+ </div>
+     </div>
+     <div class="swiper-slide">
+      <div class="slidd" >
+        <img class="fakeim" src="img\fake0.jpg" alt=""> 
+ </div>
+ <div class="slidi">
+    <h3 class="slidh3">Tanjiro</h3>
+<h5 class="slidh5">
+  Demon Slayer
+</h5>
+<p class="slidp"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur illum tempore quidem illo aut vitae, assumenda magnam nesciunt obcaecati ducimus earum deserunt natus! Excepturi dolore a, ab libero nihil corporis.</p>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star"></i>
+ </div>
+     </div>
+     <div class="swiper-slide">
+      <div class="slidd" >
+        <img class="fakeim" src="img\fake0.jpg" alt=""> 
+ </div>
+ <div class="slidi">
+    <h3 class="slidh3">Tanjiro</h3>
+<h5 class="slidh5">
+  Demon Slayer
+</h5>
+<p class="slidp"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur illum tempore quidem illo aut vitae, assumenda magnam nesciunt obcaecati ducimus earum deserunt natus! Excepturi dolore a, ab libero nihil corporis.</p>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star"></i>
+ </div>
+     </div>
+     <div class="swiper-slide">
+      <div class="slidd" >
+        <img class="fakeim" src="img\fake0.jpg" alt=""> 
+ </div>
+ <div class="slidi">
+    <h3 class="slidh3">Tanjiro</h3>
+<h5 class="slidh5">
+  Demon Slayer
+</h5>
+<p class="slidp"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur illum tempore quidem illo aut vitae, assumenda magnam nesciunt obcaecati ducimus earum deserunt natus! Excepturi dolore a, ab libero nihil corporis.</p>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star"></i>
+ </div>
+     </div>
+     <div class="swiper-slide">
+      <div class="slidd" >
+        <img class="fakeim" src="img\fake0.jpg" alt=""> 
+ </div>
+ <div class="slidi">
+    <h3 class="slidh3">Tanjiro</h3>
+<h5 class="slidh5">
+  Demon Slayer
+</h5>
+<p class="slidp"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur illum tempore quidem illo aut vitae, assumenda magnam nesciunt obcaecati ducimus earum deserunt natus! Excepturi dolore a, ab libero nihil corporis.</p>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star"></i>
+ </div>
+     </div>
+     <div class="swiper-slide">
+      <div class="slidd" >
+        <img class="fakeim" src="img\fake0.jpg" alt=""> 
+ </div>
+ <div class="slidi">
+    <h3 class="slidh3">Tanjiro</h3>
+<h5 class="slidh5">
+  Demon Slayer
+</h5>
+<p class="slidp"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur illum tempore quidem illo aut vitae, assumenda magnam nesciunt obcaecati ducimus earum deserunt natus! Excepturi dolore a, ab libero nihil corporis.</p>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star"></i>
+ </div>
+     </div>
+     <div class="swiper-slide">
+      <div class="slidd" >
+        <img class="fakeim" src="img\fake0.jpg" alt=""> 
+ </div>
+ <div class="slidi">
+    <h3 class="slidh3">Tanjiro</h3>
+<h5 class="slidh5">
+  Demon Slayer
+</h5>
+<p class="slidp"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur illum tempore quidem illo aut vitae, assumenda magnam nesciunt obcaecati ducimus earum deserunt natus! Excepturi dolore a, ab libero nihil corporis.</p>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star"></i>
+ </div>
+     </div>
+</div>
+      </div>
+      <div class="swiptex">
+      <h1 class="swiptexh1">Lets see the reviews of Profectionals</h1>
+     <p class="swiptexp">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus nostrum eligendi facilis sapiente expedita! Reiciendis, fugiat minus? Maiores, expedita! Dolor incidunt nemo voluptatem hic consectetur impedit iste vero fugit, officiis ipsum commodi, eligendi non dolorem, facere quasi? Perspiciatis distinctio minus explicabo, voluptatem fuga exercitationem, recusandae at voluptatibus vel maxime expedita.</p>
+      </div>
+      </div>
+      <div class="last">
+<div class="chad">
+  <div class="no">
+    <div class="noo">
+    <img class="lastwi" src="img\gmail.png" alt="">
+    </div>
+    <div class="lastalign">
+      <h1 class="lasth1">EMAIL</h1>
+      <p class="lastin"><a class="lasta" href="mailto:123@gmail.com">123@gmail.com</a></p>
+    </div>
+  </div>
+  <div class="no">
+    <div class="noo">
+    <img class="lastwi" src="img\location.png" alt="">
+    </div>
+    <div class="lastalign">
+      <h1 class="lasth1">LOCATION</h1>
+      <p class="lastin">703 Wiegand Parkways Suite 672</p>
+    </div>
+  </div>
+  <div class="no">
+    <div class="noo">
+    <img class="lastwi" src="img\call.png" alt="">
+    </div>
+    <div class="lastalign">
+      <h1 class="lasth1">FAX</h1>
+      <p class="lastin">1-234-567-8900</p>
+    </div>
+  </div>
+  <div class="no">
+    <div class="noo">
+    <img class="lastwi" src="img\phone.png" alt="">
+    </div>
+    <div class="lastalign">
+      <h1 class="lasth1">CONTACT US</h1>
+      <p class="lastin">7056014000</p>
+    </div>
+  </div>
+  </div>
+  <div class="touch">
+    <h1 class="th1">Get in touch</h1>
+    <h5 class="th5">We believe sustainability is vitally important.</h5>
+    <p class="tp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus velit facilis error quasi cum! Amet accusantium ullam sapiente voluptas, magnam debitis tempore dignissimos ipsum non hic molestiae sunt incidunt soluta?</p>
+ 
+</div>
+<div class="media">
+  <div class="med">
+ <a href=""><i class="fa-brands meds fa-facebook-f"></i></a>
+  <a href=""><i class="fa-brands meds fa-google"></i></a>
+  <a href=""><i class="fa-brands meds fa-reddit"></i></a>
+  <a href=""><i class="fa-brands meds fa-twitter"></i></a>
+</div>
+</div>
+<div class="copy">
+  <p class="copyp">Copyright &copy; 2022 SmartFarm All Right Reserved  </p>
+  <p class="copyp"> Credits:  Shahzeb, Soham, Anish, Shivam</p>
+
+</div>
+      </div>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    effect: "cards",
+    grabCursor: true,
+  });
+  
+</script>
+</body>
+</html>
