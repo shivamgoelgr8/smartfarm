@@ -56,6 +56,7 @@
     *{
         margin: 0px;
         padding: 0px;
+        scroll-behavior: smooth;
     }
    
     .header{
@@ -512,7 +513,21 @@ padding: 0px 44px;
   font-size: 15px;
     padding: 14px 0px;
 }
-
+.checkbtn{
+  color: #808080;
+  font-size: 35px;
+  float: right;
+  line-height: 80px;
+  margin-right: 40px;
+  cursor: pointer;
+  display: none;
+}
+#check{
+  display: none;
+}
+.blac{
+  margin: 12px 0px;
+}
 @media screen and (max-width: 1111px){
     .pg2d2{
         display: inline-block;
@@ -532,7 +547,6 @@ padding: 0px 44px;
     margin: 60px auto;
     display: block;
     width: 70%;
-    
 }
 .pageli{
   font-size: 20px;
@@ -561,6 +575,33 @@ padding: 0px 44px;
   margin: 0px auto;
   display: block;
 }
+.checkbtn{
+  display: block;
+}
+.ul{
+  position: fixed;
+       top: 104px;
+       left: -100%;
+       background:#1b356a ;
+       height: 100vh;
+     width: 100%;
+     display: block;
+     text-align: center;
+     margin: -20px 0px;
+     transition: all 0.4s ease-in;
+     border-bottom-left-radius: 30px;
+     z-index: 2;
+}
+.li{
+  padding:60px 0px 0px 0px ;
+  
+}
+.a{
+  font-size: 30px;
+}
+}
+#check:checked~.ul{
+      left: 0px;
 }
 @media screen and (max-width: 920px){
     .chad{
@@ -637,6 +678,19 @@ height: 450px;
     .button{
         margin: 38px 152px;
     }
+    .imagelogo {
+      max-width: 150px;
+    }
+    .smart{
+      font-size: 30px;
+      margin: auto 0px;
+    }
+    .mrg{
+      margin: 0px 0px;
+    }
+    .ul{
+      top: 150px;
+    }
 }
 @media screen and (max-width: 520px){
 .pa5h {
@@ -665,9 +719,8 @@ height: 450px;
     .yo{
         width: 350px;
 height: 350px;
-bottom: 200px;
 
-right: 10px;
+
     }
     .cent{
         font-size: 18px;
@@ -675,6 +728,7 @@ right: 10px;
     .button{
         margin: 10px 111px;
     }
+  
 }
  
 
@@ -689,14 +743,19 @@ right: 10px;
        
         <header class="header">
             <img class="imagelogo" src="img\WhatsApp Image 2022-07-15 at 6.02.28 PM.jpeg" alt="">
-            <h1>Smart Farm</h1>
+            <h1 class="smart">Smart Farm</h1>
         </header>
         </div>
-       <div class="ull">
+        
 
+       <div class="ull">
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+          <i class="fa-solid blac fa-bars"></i>
+        </label>
         <ul class="ul">
                                 
-            <li class="li "><a href="" class="a">home</a></li>
+            <li class="li "><a href="#con" class="a">home</a></li>
             <li class="li "><a href="" class="a">about</a></li>
             <li class="li"><a href="" class="a">project</a></li>
               
@@ -1050,7 +1109,7 @@ right: 10px;
       <p class="lastin">1-234-567-8900</p>
     </div>
   </div>
-  <div class="no">
+  <div class="no" id="con">
     <div class="noo">
     <img class="lastwi" src="img\phone.png" alt="">
     </div>
