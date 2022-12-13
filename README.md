@@ -1,1 +1,2 @@
 # smartfarm
+theme: THEME-NAME
