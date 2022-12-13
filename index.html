@@ -1,0 +1,1165 @@
+<!--
+
+██████╗░░█████╗░██████╗░██╗░█████╗░██╗░░░░░  ░██████╗███████╗██████╗░████████╗██╗░█████╗░░██████╗
+██╔══██╗██╔══██╗██╔══██╗██║██╔══██╗██║░░░░░  ██╔════╝██╔════╝██╔══██╗╚══██╔══╝██║██╔══██╗██╔════╝
+██████╔╝███████║██║░░██║██║███████║██║░░░░░  ╚█████╗░█████╗░░██████╔╝░░░██║░░░██║██║░░╚═╝╚█████╗░
+██╔══██╗██╔══██║██║░░██║██║██╔══██║██║░░░░░  ░╚═══██╗██╔══╝░░██╔═══╝░░░░██║░░░██║██║░░██╗░╚═══██╗
+██║░░██║██║░░██║██████╔╝██║██║░░██║███████╗  ██████╔╝███████╗██║░░░░░░░░██║░░░██║╚█████╔╝██████╔╝
+╚═╝░░╚═╝╚═╝░░╚═╝╚═════╝░╚═╝╚═╝░░╚═╝╚══════╝  ╚═════╝░╚══════╝╚═╝░░░░░░░░╚═╝░░░╚═╝░╚════╝░╚═════╝░
+
+
+
+
+███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
+█░░░░░░░░░░░░░░░░███░░░░░░░░░░░░░░█░░░░░░░░░░░░███░░░░░░░░░░█░░░░░░░░░░░░░░█░░░░░░████████████░░░░░░░░░░░░░░█░░░░░░░░░░░░░░█░░░░░░░░░░░░░░█░░░░░░░░░░░░░░█░░░░░░░░░░█░░░░░░░░░░░░░░█░░░░░░░░░░░░░░█
+█░░▄▀▄▀▄▀▄▀▄▀▄▀░░███░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀░░░░█░░▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀░░████████████░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█
+█░░▄▀░░░░░░░░▄▀░░███░░▄▀░░░░░░▄▀░░█░░▄▀░░░░▄▀▄▀░░█░░░░▄▀░░░░█░░▄▀░░░░░░▄▀░░█░░▄▀░░████████████░░▄▀░░░░░░░░░░█░░▄▀░░░░░░░░░░█░░▄▀░░░░░░▄▀░░█░░░░░░▄▀░░░░░░█░░░░▄▀░░░░█░░▄▀░░░░░░░░░░█░░▄▀░░░░░░░░░░█
+█░░▄▀░░████░░▄▀░░███░░▄▀░░██░░▄▀░░█░░▄▀░░██░░▄▀░░███░░▄▀░░███░░▄▀░░██░░▄▀░░█░░▄▀░░████████████░░▄▀░░█████████░░▄▀░░█████████░░▄▀░░██░░▄▀░░█████░░▄▀░░███████░░▄▀░░███░░▄▀░░█████████░░▄▀░░█████████
+█░░▄▀░░░░░░░░▄▀░░███░░▄▀░░░░░░▄▀░░█░░▄▀░░██░░▄▀░░███░░▄▀░░███░░▄▀░░░░░░▄▀░░█░░▄▀░░████████████░░▄▀░░░░░░░░░░█░░▄▀░░░░░░░░░░█░░▄▀░░░░░░▄▀░░█████░░▄▀░░███████░░▄▀░░███░░▄▀░░█████████░░▄▀░░░░░░░░░░█
+█░░▄▀▄▀▄▀▄▀▄▀▄▀░░███░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀░░██░░▄▀░░███░░▄▀░░███░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀░░████████████░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█████░░▄▀░░███████░░▄▀░░███░░▄▀░░█████████░░▄▀▄▀▄▀▄▀▄▀░░█
+█░░▄▀░░░░░░▄▀░░░░███░░▄▀░░░░░░▄▀░░█░░▄▀░░██░░▄▀░░███░░▄▀░░███░░▄▀░░░░░░▄▀░░█░░▄▀░░████████████░░░░░░░░░░▄▀░░█░░▄▀░░░░░░░░░░█░░▄▀░░░░░░░░░░█████░░▄▀░░███████░░▄▀░░███░░▄▀░░█████████░░░░░░░░░░▄▀░░█
+█░░▄▀░░██░░▄▀░░█████░░▄▀░░██░░▄▀░░█░░▄▀░░██░░▄▀░░███░░▄▀░░███░░▄▀░░██░░▄▀░░█░░▄▀░░████████████████████░░▄▀░░█░░▄▀░░█████████░░▄▀░░█████████████░░▄▀░░███████░░▄▀░░███░░▄▀░░█████████████████░░▄▀░░█
+█░░▄▀░░██░░▄▀░░░░░░█░░▄▀░░██░░▄▀░░█░░▄▀░░░░▄▀▄▀░░█░░░░▄▀░░░░█░░▄▀░░██░░▄▀░░█░░▄▀░░░░░░░░░░████░░░░░░░░░░▄▀░░█░░▄▀░░░░░░░░░░█░░▄▀░░█████████████░░▄▀░░█████░░░░▄▀░░░░█░░▄▀░░░░░░░░░░█░░░░░░░░░░▄▀░░█
+█░░▄▀░░██░░▄▀▄▀▄▀░░█░░▄▀░░██░░▄▀░░█░░▄▀▄▀▄▀▄▀░░░░█░░▄▀▄▀▄▀░░█░░▄▀░░██░░▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░████░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀░░█████████████░░▄▀░░█████░░▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█
+█░░░░░░██░░░░░░░░░░█░░░░░░██░░░░░░█░░░░░░░░░░░░███░░░░░░░░░░█░░░░░░██░░░░░░█░░░░░░░░░░░░░░████░░░░░░░░░░░░░░█░░░░░░░░░░░░░░█░░░░░░█████████████░░░░░░█████░░░░░░░░░░█░░░░░░░░░░░░░░█░░░░░░░░░░░░░░█
+███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
+
+
+
+ ██▀███   ▄▄▄      ▓█████▄  ██▓ ▄▄▄       ██▓         ██████ ▓█████  ██▓███  ▄▄▄█████▓ ██▓ ▄████▄    ██████ 
+▓██ ▒ ██▒▒████▄    ▒██▀ ██▌▓██▒▒████▄    ▓██▒       ▒██    ▒ ▓█   ▀ ▓██░  ██▒▓  ██▒ ▓▒▓██▒▒██▀ ▀█  ▒██    ▒ 
+▓██ ░▄█ ▒▒██  ▀█▄  ░██   █▌▒██▒▒██  ▀█▄  ▒██░       ░ ▓██▄   ▒███   ▓██░ ██▓▒▒ ▓██░ ▒░▒██▒▒▓█    ▄ ░ ▓██▄   
+▒██▀▀█▄  ░██▄▄▄▄██ ░▓█▄   ▌░██░░██▄▄▄▄██ ▒██░         ▒   ██▒▒▓█  ▄ ▒██▄█▓▒ ▒░ ▓██▓ ░ ░██░▒▓▓▄ ▄██▒  ▒   ██▒
+░██▓ ▒██▒ ▓█   ▓██▒░▒████▓ ░██░ ▓█   ▓██▒░██████▒   ▒██████▒▒░▒████▒▒██▒ ░  ░  ▒██▒ ░ ░██░▒ ▓███▀ ░▒██████▒▒
+░ ▒▓ ░▒▓░ ▒▒   ▓▒█░ ▒▒▓  ▒ ░▓   ▒▒   ▓▒█░░ ▒░▓  ░   ▒ ▒▓▒ ▒ ░░░ ▒░ ░▒▓▒░ ░  ░  ▒ ░░   ░▓  ░ ░▒ ▒  ░▒ ▒▓▒ ▒ ░
+  ░▒ ░ ▒░  ▒   ▒▒ ░ ░ ▒  ▒  ▒ ░  ▒   ▒▒ ░░ ░ ▒  ░   ░ ░▒  ░ ░ ░ ░  ░░▒ ░         ░     ▒ ░  ░  ▒   ░ ░▒  ░ ░
+  ░░   ░   ░   ▒    ░ ░  ░  ▒ ░  ░   ▒     ░ ░      ░  ░  ░     ░   ░░         ░       ▒ ░░        ░  ░  ░  
+   ░           ░  ░   ░     ░        ░  ░    ░  ░         ░     ░  ░                   ░  ░ ░            ░  
+                    ░                                                                     ░                 
+
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href=”https://pro.fontawesome.com/releases/v5.10.0/css/all.css” rel=”stylesheet”/>
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+<link rel="icon" href="img\WhatsApp Image 2022-07-15 at 6.02.28 PM.jpeg">
+<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crops</title>
+</head>
+<style>
+    *{
+        margin: 0px;
+        padding: 0px;
+        scroll-behavior: smooth;
+    }
+   
+    .header{
+      font-size: 30px;
+        background-color: white;
+        margin: 0px 0px;
+        padding: 0px 0px;
+        display: flex
+        ;
+    width: auto;
+    float: left;
+       color: grey;
+
+}
+.backgr{
+width: 100%;
+height: 100%; 
+
+
+}
+.yo{
+   
+    background-color: white;
+    
+    bottom: 20px;
+
+  text-align: center;
+    position: absolute;
+width: 500px;
+height: 500px;
+border-radius: 100%;
+box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+
+}
+
+
+
+.blue{
+    color: #1b356a;
+    margin: 100px 0px 38px 0px;
+    padding: 0px 0px;
+    bottom: 20px;
+  right: 20px;
+ font-size:4rem;
+ font-family: 'Audiowide';
+ height: 60px;
+ text-align: center;
+ font-weight: 700
+}
+.e{
+  color: white;
+  text-decoration: none;
+}
+.button{
+color: white;
+background-color: blue;
+padding: 20px 0px;
+margin:42px 188px;
+border-radius: 40px;
+width: 124px;
+height: 18px;
+text-align: center;
+border:blue 2px solid ;}
+
+.cent{
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    padding: 0px 3px;
+}
+.button:hover{
+    transition: all 0.4s;
+   background-color: white;
+  
+   cursor:pointer;
+}
+.button:hover .e{
+  color: blue;
+  transition: all 0.4s;
+
+}
+.getmid{
+    display: flex;
+  justify-content: center;
+     
+
+}
+.mrg{
+    margin: 0px 40px;
+ 
+}
+.ul{
+    display: flex;
+    list-style-type: none;
+    
+
+}
+.ull{
+    display: block;
+    width: auto;
+    float: right;
+     list-style-type: none;
+    text-align: center;
+}
+.li{
+    text-decoration: none;
+    padding:  22px 10px;;
+    margin: 0px 0px;
+    color: gray;
+   
+}
+.a{
+    text-decoration:none;
+color: gray;
+text-transform: uppercase;
+font-size: 21px;
+
+
+
+}
+.a:hover{
+    transition: all 0.4s;
+   
+   color: rgb(20, 10, 10);
+   cursor:pointer;
+}
+.pg2h1{
+  color: #b8caf0;;
+    padding: 50px 0px;
+    font-family: audiowide;
+}
+.pg2d1{
+text-align: center;
+font-size: 25px;
+
+}
+.pg2p{
+    color: white;
+    font-size: 19px;
+   
+}
+.pg2{
+    background-color: #1b356a;
+    width: 100%;
+    height: auto;
+  
+
+}
+.whitebo{
+    width: 300px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    display: inline-block;
+    margin: 27px 40px;
+    padding: 0px 0px;
+    border-radius: 20px;
+}
+
+.pg2d2{
+    display: flex;
+    justify-content: space-evenly;
+}
+.iconp2{
+    font-size: 51px;
+    padding: 19px 0px 0px 0px;
+}
+.iconp1{
+    width: 100px ;
+    height: 100px;
+    border-radius: 50%;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(128, 128, 128, 0.16);
+   
+}
+.mrgp2d2{
+    margin: 10px 17px;
+}
+.d2p2d2{
+    margin: 22px 0px;
+    color: black;
+}
+.p2d2d2{
+text-align: left;
+color: #1b356a;
+text-transform: uppercase;
+font-weight: 20px;
+margin: 14px 0px ;
+font-family: 'Montserrat', sans-serif;
+}
+
+  .pago{
+    margin: 60px 40px;
+    display: inline-block;
+    
+    
+  }
+  .pageul{
+text-align: left;
+text-transform: capitalize;
+font-family: 'Montserrat', sans-serif;
+text-decoration: none;
+  }
+  .pageli{
+    text-decoration: none;
+    font-size: medium;
+    list-style: none;
+    padding: 10px 0px;
+  }
+  .pagea{
+    color: rgb(17, 16, 16);
+  }
+  .pageh1{
+   padding: 0px 0px;
+   margin: 0px 0px 55px 0px;
+   font-family: 'Audiowide';
+  }
+  .page{
+    display: flex;
+    width: auto;
+    height: auto;
+  }
+  .imgpage{
+    width: 100%;
+  max-width: 760px;
+  height: auto;
+  margin: 60px 0px;
+
+  }
+  
+  .pa5{
+    position: relative;
+  }
+  .pa5im{
+    width: 100%;
+  max-width: 1920px;
+  height: auto;
+  display: inline-block;
+
+  }
+  .pa5d2{
+    padding: 0px 150px;
+    position: absolute;
+    bottom: 280px;
+    width: auto;
+    height: auto;
+  
+    color: white;
+    z-index: 2;
+
+
+  }
+  .pa5h{
+    padding: 25px 0px;
+    font-size: 40px;
+    color: white;
+    z-index: 2;
+    font-family: 'Audiowide';
+    font-weight: 400;
+
+  }
+  .pa5p{
+    padding: 23px 0px;
+    font-size: 23px;
+    font-family: 'Montserrat', sans-serif;
+  }
+.imagelogo{
+    width: 100%;
+  max-width: 100px;
+  height: auto;
+}
+.que{
+margin: 90px 60px;
+display: flex;
+  }
+  .queimg{
+    width: 100%;
+
+    height: auto;
+    max-width: 1300px;
+  }
+  .queh1{
+    margin:0px 70px 35px 25px;
+    color: #2a3139;
+    font-size: 58px;
+    font-family: 'Audiowide';
+}
+  .quep1{
+    margin:0px 70px 35px 25px;
+    color: #4d5968;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 23px;
+}
+.swiper {
+        width: 240px;
+        height: 320px;
+        margin: auto 90px;
+        padding: 0px 0px;
+      }
+
+      .swiper-slide {
+       
+        border-radius: 18px;
+        font-size: 22px;
+        font-weight: bold;
+        
+      }
+       .swiper-slide {
+       
+        padding: 10px 10px 20px 10px;
+  border: 1px solid #BFBFBF;
+  background-color: white;
+  box-shadow: 10px 10px 5px #aaaaaa;
+      }
+      .slidd{
+        display: block;
+        margin: 0px auto;
+        width: 40%;
+      }
+      .fakeim{
+        width: 100%;
+        max-width: 90px;
+        height: auto;
+        border-radius: 50%;
+        display: inline-block;
+      }
+      .slidh3{
+        font-size: 30px;
+    padding: 8px 0px;
+      }
+      .slidh5{
+        font-size: 17px;
+        padding: 0px 0px;
+        color: #A3A5B5;;
+      }
+      .slidp{
+        font-size: 13px;
+        padding: 20px 0px;
+        color: #A3A5B5;;
+      }
+
+.clicked{
+  color: rgb(255, 79, 79);
+
+}
+.pageswipe{
+  background-color: #2a3139;
+  width: 100%;
+  height: 85vh;
+  display: flex;
+}
+.swiptex{
+  color: whitesmoke;
+  margin: auto 60px;
+  padding: 0px 0px;
+}
+.swiptexh1{
+  margin: 35px 0px;
+  font-size: 39px;
+  font-family: 'Audiowide';
+}
+.swiptexp{
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.irrimg1{
+    width: 100%;
+    max-width:1000px;
+
+}
+
+.irrimg{
+    display: flex;
+}
+.irrc1{
+background-color: #a3c70b;
+padding: 50px 45px;
+
+}
+.irrc2{
+background-color: #38c8d3;
+padding:50px 45px;
+}
+.irrtext{
+   
+padding: 0px 44px;
+}
+.irrh1{
+    padding: 0px 0px 20px 0px;
+    font-family: 'Audiowide';
+}
+.last{
+    background-color: #d9d9d9;
+    width: 100%;
+    height: auto;
+}
+.chad{
+  display: flex;
+  padding: 40px 60px;
+  margin: 0px auto;
+  justify-content: space-evenly;
+
+}
+.no{
+  width: 200px;
+    height: 256px;
+ box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+ background-color: white;
+ border-radius: 10%;
+ display: inline-block;
+ 
+}
+.lastwi{
+  width: 64px;
+  height: 64px;
+  margin: 0px auto;
+  display: block;
+  
+  padding: 15px 0px;
+}
+.lasth1{
+  padding: 0px 0px;
+  margin: 10px 0px 25px 0px;
+  font-size: 27px;
+}
+.lastalign{
+  text-align: center;
+}
+.lastin{
+  font-size: 18px;
+  padding: 0px 00px;
+}
+.lasta{
+  color: #1b356a;
+
+}
+.touch{
+  margin: 0px 70px;
+  padding: 0px 0px;
+}
+.th1{
+  font-size: 60px;
+  color: #1b356a;
+  padding: 0px 0px 10px 0px;
+  font-family: 'Audiowide';
+}
+.th5{
+  font-size: 30px;
+  padding: 15px 0px;
+  color: #2a3139;
+  font-family: 'Montserrat', sans-serif;
+
+}
+.tp{
+  color: #2a3139;
+  font-family: 'Montserrat', sans-serif;
+}
+.media{
+  display: flex;
+  text-align: center;
+}
+.med{
+  margin: 0px auto;
+  width: 100%;
+  display: block;
+}
+.meds{
+  font-size: 31px;
+    padding: 19px 12px;
+    color: #1b356a;
+}
+.copy{
+  width: 100%;
+ 
+  background-color: #333;
+  text-align: center;
+}
+.copyp{
+  color: white;
+  font-size: 15px;
+    padding: 14px 0px;
+}
+.checkbtn{
+  color: #808080;
+  font-size: 35px;
+  float: right;
+  line-height: 80px;
+  margin-right: 40px;
+  cursor: pointer;
+  display: none;
+}
+#check{
+  display: none;
+}
+.blac{
+  margin: 12px 0px;
+}
+@media screen and (max-width: 1111px){
+    .pg2d2{
+        display: inline-block;
+    }
+    .whitebo{
+        display: block;
+        width: 40%;
+        margin: 0px auto;
+    }
+    .pa5d2{
+      bottom: 66px;
+    }
+    .page{
+      display: block;
+    }
+    .pago {
+    margin: 60px auto;
+    display: block;
+    width: 70%;
+}
+.pageli{
+  font-size: 20px;
+}
+.pageh1{
+  font-size:50px ;
+}
+.imgpage{
+  max-width: none;
+  margin: 0px 0px;
+}
+.que{
+  display: block;
+  margin: 90px 10px;
+
+  
+}
+.queh1 {
+    margin: 0px 0px 35px 25px;
+}
+.quep1{
+  margin: 0px 0px 35px 25px;
+}
+.queimg{
+  max-width: 300px;
+  margin: 0px auto;
+  display: block;
+}
+.checkbtn{
+  display: block;
+}
+.ul{
+  position: fixed;
+       top: 104px;
+       left: -100%;
+       background:#1b356a ;
+       height: 100vh;
+     width: 100%;
+     display: block;
+     text-align: center;
+     margin: -20px 0px;
+     transition: all 0.4s ease-in;
+     border-bottom-left-radius: 30px;
+     z-index: 2;
+}
+.li{
+  padding:60px 0px 0px 0px ;
+  
+}
+.a{
+  font-size: 30px;
+}
+}
+#check:checked~.ul{
+      left: 0px;
+      
+}
+
+@media screen and (max-width: 920px){
+    .chad{
+      display: block;
+      
+    }
+  .no{
+    display: block;
+    width: 37%;
+    margin: 20px auto
+  }
+}
+@media screen and (max-width: 800px){
+  .pageswipe{
+    display: block;
+    height: auto;
+  }
+  .swiper-slide{
+    margin: 20px 0px;
+  }
+  .swiptexh1 {
+    margin: 80px 0px 15px 0px;
+    font-size: 30px;
+}
+.swiptexp{
+  padding: 0px 0px 20px 0px;
+}
+.swiper{
+  margin: 0px auto;
+}
+.irrimg {
+    display: block;
+    
+}
+.irrtext {
+    padding: 0px 0px;
+}
+.irrh1 {
+font-size: 36px;
+}
+}
+@media screen and (max-width: 700px){
+  .pa5d2{
+      bottom: 10px;
+      
+    padding: 0px 0px;
+
+    }
+    .pa5p {
+    padding: 7px 0px;}
+    
+    .whitebo{
+        display: block;
+        width: 65%;
+        margin: 0px auto;
+    }
+    .no{
+    display: block;
+    width: 57%;
+    margin: 20px auto
+  }
+  .pageli{
+  font-size: 16px;
+}
+.pageh1{
+  font-size:38px ;
+}
+.pa5h{
+  font-size: 36px;
+}
+}
+@media screen and (max-width: 550px){
+    .yo{
+        width: 450px;
+height: 450px;
+
+    }
+    .button{
+        margin: 38px 152px;
+    }
+    .imagelogo {
+      max-width: 150px;
+    }
+    .smart{
+      font-size: 30px;
+      margin: auto 0px;
+    }
+    .mrg{
+      margin: 0px 0px;
+    }
+    .ul{
+      top: 150px;
+    }
+}
+@media screen and (max-width: 520px){
+.pa5h {
+    padding: 0px 0px;
+    font-size: 24px;}
+    .swiper{
+  margin: 0px 30px;
+}
+.no{
+    display: block;
+    width: 77%;
+    margin: 20px auto
+  }
+  .pageli{
+  font-size: 14px;
+}
+.pageh1{
+  font-size:32px ;
+}
+.irrh1 {
+    font-size: 30px;
+}
+ }
+
+@media screen and (max-width: 480px){
+    .yo{
+        width: 350px;
+height: 350px;
+
+
+    }
+    .cent{
+        font-size: 18px;
+    }
+    .button{
+        margin: 10px 111px;
+    }
+  .blue{
+    font-size: 40px;
+    margin: 50px 0px 38px 0px;
+  }
+  .pa5p{
+    font-size: 17px;
+  }
+  
+}
+ 
+.padd{
+  padding: 23px 0px 0px 20px;
+}
+.spr{
+  font-family: 'Montserrat', sans-serif;
+}
+</style>
+<body>
+    <div class="body">
+
+        <div class="mrg">
+            
+       <div class="logofl">
+
+       
+        <header class="header">
+            <img class="imagelogo" src="img\WhatsApp Image 2022-07-15 at 6.02.28 PM.jpeg" alt="">
+            <h1 class="smart">Smart Farm</h1>
+        </header>
+        </div>
+        
+
+       <div class="ull">
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+          <i class="fa-solid blac fa-bars"></i>
+        </label>
+        <ul class="ul">
+                                
+            <li class="li "><a href="#" class="a">home</a></li>
+            <li class="li "><a href="#about"  class="a">about</a></li>
+            <li class="li"><a href="#feat" class="a">Features</a></li>
+              
+                    <li class="li "><a href="#rev" class="a"> Reviews</a></li>
+                    <li class="li "><a href="#con" class="a"> contact</a></li>
+
+                </ul>
+  
+        </div>
+        </div>
+        <div class="container">
+            <img class="backgr" src="img\pexels-alejandro-barrón-96715.jpg" alt="">
+<div class="getmid">
+<div class="yo">
+    <h1 class="blue">SmartFarm</h1>
+    <h2 class="cent">Grow smarter,faster and better with us. We care for the environment. Let us take a brief dive encapsulating all our motives and objectives with this newly thought idea.</h2>
+<p class="button">
+   <a class="e" href="#sen"> Read More</a>
+</p>
+        </div>
+</div>
+    </div>
+    </div>
+    <div class="pg2 ">
+        <div id="about" class="pg2d1">
+            <h1 class="pg2h1"> WHAT WE DO            </h3>
+            <p class="pg2p">Creating environments that care</p>
+        </div>
+        <div class="pg2d2">
+<div class="whitebo">
+    <div class="mrgp2d2">
+    <div class="iconp1">
+      <i class="fa-solid fa-temperature-low iconp2 padd"></i>
+    </div>
+    <div class="p2d2d2">
+<h3>CALCULATING TEMPERATURE
+</h3>
+<p class="d2p2d2">Our temperature sensors work hand in hand with humidity sensors and provide their data to a computer in the nearby building. These temperature sensors are important for computing the growth of crops. For example, the ideal temperature for growth of wheat is 15.5 degree Celsius, for jowar it is 27-32 degree Celsius and so on. </p>
+    </div>
+
+    </div>
+</div>
+<div class="whitebo">
+    <div class="mrgp2d2">
+    <div class="iconp1">
+        <i class="fa-solid fa-hand-holding-droplet iconp2"></i>
+    </div>
+    <div class="p2d2d2">
+<h3>CALCULATING HUMIDITY
+</h3>
+<p class="d2p2d2">We also employ humidity sensors which calculate humidity or moisture content of the soil. This is extremely crucial for the growth of crops and we understand the need to ease the burden of farmers, blindly spitting water on their fields. We want to save water.</p>
+    </div>
+
+    </div>
+</div>
+<div class="whitebo">
+    <div class="mrgp2d2">
+    <div class="iconp1">
+      <i class="fa-solid fa-database iconp2"></i>
+    </div>
+    <div class="p2d2d2">
+<h3>COLLECTING THE DATA
+</h3>
+<p class="d2p2d2">All the data from sensors is collected to a median point on the farm, this rod collectively sends all the data to a nearby building housing a computer. This is automated and uses machine learning. This data is analysed and further processed.</p>
+    </div>
+
+    </div>
+</div>
+ 
+
+        </div>
+    </div>
+   <div class="page">
+    <div class="pago">
+        <h1 class="pageh1">OUR OBJECTIVES</h1>
+        <ul class="pageul">
+            <li class="pageli">→ We Calculate <u> <a class="pagea" href="">Ideal Temperature</a></u></li>
+            <li class="pageli">→ We Calculate  <u> <a href="" class="pagea"> Ideal Humidity</a></u></li>
+            <li class="pageli">→<u><a href="" class="pagea">Automating the process</a></u></li>
+     
+           
+        </ul>
+    </div>
+    <div class="pageimg">
+        <img  class="imgpage" src=" img\farmer-standing-rice-field-with-tablet.jpg" alt="">
+    </div>
+   </div>
+   <div class="ir">
+    <div class=" irrc1 ">
+        <div class="irrimg">
+        <div>    
+<img class="irrimg1" src="img\irrigation 1.jpg" alt="">
+</div>
+<div id="feat" class="irrtext">
+<h1 class="irrh1">Using Sprinkler Irrigation</h1>
+<p class="spr">Analysed data is used to water the crops. Now no more pointless and blind splitting of water, hoping to reach each and every corner. The data is carefully analysed and that much water is applied as much is needed.</p>
+</div>
+
+    </div>
+</div>
+    <div class=" irrc2">
+        <div class="irrimg">
+            <div class="irrtext">
+            <h1 class="irrh1">Automating the hazardous job of applying fertiliser </h1>
+            <p class="spr">Our product ensures that farmers are not at constant risk of inhaling dangerous chemicals fertilisers are made of.  Our sensors detect the amount of fertiliser needed and that can be carefully added by the farmers. Excessive fertiliser can result in acidity or alkalinity of the soil which damages it in the long run.
+            </p>
+            </div>
+            <div>
+
+      
+    <img class="irrimg1" src="img\FERTILISER 1.jpg" alt="">
+    </div>
+</div>
+</div>
+</div>
+      <div class="pa5">
+<div>
+    <div class="pa5d2">
+        <h1 class="pa5h">Lets see the proper working sensors in our field</h1>
+<p class="pa5p">Sensors have become a great way of improving the quality of soil. Sensors are ever-expanding along with the progress in science and technology. Sensors are relatively simple devices and extremely useful in Agricultural field </p>
+    </div>
+    <img class="pa5im" src="img\Artboard 2.jpg" alt="">
+    <div class="p5im"></div>
+    
+    </div>
+   
+   </div>
+   <div id="sen" class="que">
+    
+<div class="quedi">
+<h1 class="queh1">How do Sensors Work in Field?</h1>
+<p class="quep1">The sensors are applied at an interval of every few ten metres. These bluetooth sensors calculate humidity and temperature of the soil. As we know different crops have different requirements in their humidity and temperature, and we can solve that. All the data from the sensors is collectively sent to this big antenna in the middle of the field, this is done to ensure that signals dont get weak. All these signals are transmitted to a computer.</p>
+
+
+<p class="quep1">This computer reads the data, and since we know the ideal condition of the crops we are growing, it tells the Sprinkler Irrigation  system to pour as much water that will raise moisture as much needed or vice versa. This way a huge amount of water is saved and also prevents chances of waterlogging.
+</p>
+
+
+</div>
+<div>
+  <img class="queimg" src="img\Artboard 1.jpg" alt="">
+</div>
+</div>
+<div id="rev" class="pageswipe">
+<div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+      <div class="slidd" >
+        <img class="fakeim" src="img\fake0.jpg" alt=""> 
+ </div>
+ <div class="slidi">
+    <h3 class="slidh3">Rosalie J. Trudeau</h3>
+<h5 class="slidh5">
+ Professior In Howard University
+</h5>
+<p class="slidp">SmartFarm changed the way I farmed my crops. In the long run, it has saved water, but in the short run, it cost me a lot for the setup. I request the company to try to make the product more affordable.
+</p>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+ </div>
+     </div>
+     <div class="swiper-slide">
+      <div class="slidd" >
+        <img class="fakeim" src="img\fake1.jpg" alt=""> 
+ </div>
+ <div class="slidi">
+    <h3 class="slidh3">Keith R. Viramontes</h3>
+<h5 class="slidh5">
+ Specialist in Agricultural Field
+</h5>
+<p class="slidp">Breaking news! 10th ke baccho ne kiya computer teacher ko jobless dhamki di “pubg ke tawe se marenge” teacher left school in extreme conditions, prime minister is judging the case and students are sentenced to be hanged
+ .</p>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star "></i>
+ </div>
+     </div>
+     <div class="swiper-slide">
+      <div class="slidd" >
+        <img class="fakeim" src="img\fake2.jpg" alt=""> 
+ </div>
+ <div class="slidi">
+    <h3 class="slidh3">Florence </h3>
+<h5 class="slidh5">
+  Resercher in Botany
+</h5>
+<p class="slidp">Violence violence violence i dont like it i avoid, BUT violence likes me, I still avoid.</p>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star "></i>
+<i class="fa fa-star"></i>
+ </div>
+     </div>
+     <div class="swiper-slide">
+      <div class="slidd" >
+        <img class="fakeim" src="img\fake3.jpg" alt=""> 
+ </div>
+ <div class="slidi">
+    <h3 class="slidh3">Thunkjash pro</h3>
+<h5 class="slidh5">
+  Electrical Engineer
+</h5>
+<p class="slidp">Thunkjash pro speaking here, they have made me a labour and done plagiarism, i made all the models and they are making me pay for the buildings! I want justice</p>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star "></i>
+<i class="fa fa-star"></i>
+ </div>
+     </div>
+     <div class="swiper-slide">
+      <div class="slidd" >
+        <img class="fakeim" src="img\fake4.jpg" alt=""> 
+ </div>
+ <div class="slidi">
+    <h3 class="slidh3">Inesh tickoo</h3>
+<h5 class="slidh5">
+  Vice President at COЯE
+</h5>
+<p class="slidp">Inesh tickoo speaking here, this is pinnacle of website and i surrender infront of Radial Septics, tickoo is finally defeated.</p>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+ </div>
+     </div>
+   
+     <div class="swiper-slide">
+      <div class="slidd" >
+        <img class="fakeim" src="img\fake6.jpg" alt=""> 
+ </div>
+ <div class="slidi">
+    <h3 class="slidh3">rahim</h3>
+<h5 class="slidh5">
+  Ph.D in Plant Growth
+</h5>
+<p class="slidp">We are rahim and kabir, this product is very good and helped to give our chuhe a new home in the farm.</p>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star "></i>
+<i class="fa fa-star"></i>
+ </div>
+     </div>
+     <div class="swiper-slide">
+      <div class="slidd" >
+        <img class="fakeim" src="img\fake7.jpg" alt=""> 
+ </div>
+ <div class="slidi">
+    <h3 class="slidh3">Senku</h3>
+<h5 class="slidh5">
+  Dr.Stone
+</h5>
+<p class="slidp"> Sundar pichai speaking here, seeing the beauty of this project, i hand all the property of google to radial septics.
+</p>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+ </div>
+     </div>
+     <div class="swiper-slide">
+      <div class="slidd" >
+        <img class="fakeim" src="img\fake8.jpg" alt=""> 
+ </div>
+ <div class="slidi">
+    <h3 class="slidh3">Elon Musk</h3>
+<h5 class="slidh5">
+  Business magnat</h5>
+<p class="slidp">This is heart tooching product, an absolute wahiyaat product. Aadhe se zyada time kaam hi nahi karta.</p>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star clicked"></i>
+<i class="fa fa-star "></i>
+<i class="fa fa-star "></i>
+<i class="fa fa-star"></i>
+ </div>
+     </div>
+</div>
+      </div>
+      <div class="swiptex">
+      <h1 class="swiptexh1">Lets see the Reviews from Professionals</h1>
+     <p class="swiptexp">These are the reviews from some of the world professionals. We have invested our time to gather the reviews from Best Professionals to improve our product.  </p>
+      </div>
+      </div>
+      <div id="con" class="last">
+<div class="chad">
+  <div class="no">
+    <div class="noo">
+    <img class="lastwi" src="img\gmail.png" alt="">
+    </div>
+    
+    <div class="lastalign">
+      <h1 class="lasth1">EMAIL</h1>
+      <p class="lastin"><a class="lasta" href="mailto:shivamgoelgr8@gmail.com">shivamgoelgr8@gmail.com</a></p>
+    </div>
+  </div>
+  <div class="no">
+    <div class="noo">
+    <img class="lastwi" src="img\location.png" alt="">
+    </div>
+    <div class="lastalign">
+      <h1 class="lasth1">LOCATION</h1>
+      <p class="lastin"> Panipat, Haryana, India</p>
+    </div>
+  </div>
+  <div class="no">
+    <div class="noo">
+    <img class="lastwi" src="img\call.png" alt="">
+    </div>
+    <div class="lastalign">
+      <h1 class="lasth1">FAX</h1>
+      <p class="lastin">1-234-567-8900</p>
+    </div>
+  </div>
+  <div class="no" id="con">
+    <div class="noo">
+    <img class="lastwi" src="img\phone.png" alt="">
+    </div>
+    <div class="lastalign">
+      <h1 class="lasth1">CONTACT US</h1>
+      <p class="lastin">+91 7056014000</p>
+    </div>
+  </div>
+  </div>
+  <div class="touch">
+    <h1 class="th1">Get in touch</h1>
+    <h5 class="th5">We believe sustainability is vitally important.</h5>
+    
+ 
+</div>
+<div class="media">
+  <div class="med">
+ <a href="https://discord.gg/pRhtukFHau"><i class="fa-brands meds fa-discord"></i></a>
+  <a href="https://www.behance.net/thunkjashstudios"><i class="fa-brands meds fa-behance"></i></a>
+  <a href="https://www.reddit.com"><i class="fa-brands meds fa-reddit"></i></a>
+  <a href="https://twitter.com/"><i class="fa-brands meds fa-twitter"></i></a>
+</div>
+</div>
+<div class="copy">
+  <p class="copyp">Copyright &copy; 2022 SmartFarm All Rights Reserved  </p>
+  <p class="copyp"> Credits:  Shahzeb, Shivam</p>
+
+</div>
+      </div>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    effect: "cards",
+    grabCursor: true,
+  });
+  
+</script>
+</body>
+</html>
